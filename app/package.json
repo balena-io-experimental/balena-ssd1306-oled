@@ -1,0 +1,36 @@
+{
+  "name": "resin-ssd1306-oled",
+  "version": "0.0.1",
+  "description": "A simple resin.io application for controlling a SSD1306 OLED screen via I2C and showing useful informations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "resin",
+    "io",
+    "rpi",
+    "raspberry",
+    "zero",
+    "oled",
+    "screen",
+    "i2c",
+    "docker",
+    "supervisor"
+  ],
+  "author": "Carlo Maria Curinga <carlo@resin.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-io-playground/resin-ssd1306-oled/issues"
+  },
+  "homepage": "https://github.com/resin-io-playground/resin-ssd1306-oled#readme",
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": true
+  },
+  "dependencies": {
+    "oled-font-5x7": "^1.0.0",
+    "oled-i2c-bus": "^1.0.9",
+    "png-to-lcd": "^1.0.3"
+  }
+}

@@ -7,19 +7,14 @@ FROM resin/%%RESIN_MACHINE_NAME%%-alpine-node:slim
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app
 
-# Install i2c-bus without carrying all the deps in the layers
-RUN apk add --no-cache make gcc g++ python && \
-  npm install --production --silent i2c-bus && \
-  apk del make gcc g++ python && \
-  npm cache clean --force && rm -rf /tmp/*
-
 # Move package.json to filesystem
 COPY ./app/package.json ./
 
-# This install npm dependencies on the resin.io build server,
-# making sure to clean up the artifacts it creates in order to reduce the image size.
-RUN JOBS=MAX npm install --unsafe-perm --production \
-  && npm cache clean --force && rm -rf /tmp/*
+# Install node modules, including i2c-bus without carrying all the deps in the layers
+RUN apk add --no-cache make gcc g++ python && \
+  npm install --production --silent && \
+  apk del make gcc g++ python && \
+  npm cache clean --force && rm -rf /tmp/*
 
 # This will copy all files in our root to the working  directory in the container
 COPY ./app ./

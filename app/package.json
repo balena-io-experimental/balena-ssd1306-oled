@@ -29,6 +29,7 @@
     "strict": true
   },
   "dependencies": {
+    "i2c-bus": "1.2.2",
     "oled-font-5x7": "^1.0.0",
     "oled-i2c-bus": "^1.0.9",
     "png-to-lcd": "^1.0.3"
